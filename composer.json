@@ -2,6 +2,7 @@
   "name": "ramzi-alqrainy/zoom-php",
   "description": "PHP client library for interacting with the Zoom API V2",
   "version": "0.0.2",
+  "minimum-stability": "stable",
   "keywords": ["zoom", "api", "client"],
   "license": "Apache-2.0",
   "homepage": "https://github.com/Ramzi-Alqrainy/zoom-php",
@@ -33,7 +34,7 @@
   },
   "autoload": {
     "psr-4": {
-      "ramzialqrainy\\ZoomPHP\\": "src/"
+      "ZoomPHP\\": "src/"
     }
   }
 }
