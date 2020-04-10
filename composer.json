@@ -1,9 +1,9 @@
 {
-  "name": "ramzi-alqrainy/zoom-php ",
+  "name": "ramzi-alqrainy/zoomphp ",
   "description": "Zoom API v2 PHP Library.",
   "version": "0.0.2",
   "keywords": ["zoom", "api", "client"],
-  "license": "apache 2.0",
+  "license": "Apache-2.0",
   "homepage": "https://github.com/Ramzi-Alqrainy/zoom-php",
   "authors": [
     {
