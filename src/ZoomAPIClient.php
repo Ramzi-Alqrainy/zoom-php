@@ -18,7 +18,7 @@ use Firebase\JWT\JWT;
  *
  * @todo add property-read statements.
  */
-class ZoomPHPClient {
+class ZoomAPIClient {
 
   /**
    * The Zoom API Url.
