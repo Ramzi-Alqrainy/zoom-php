@@ -1,6 +1,6 @@
 {
   "name": "ramzi-alqrainy/zoom-php ",
-  "description": "Zoom API v2 PHP Library.",
+  "description": "PHP client library for interacting with the Zoom API V2",
   "version": "0.0.2",
   "keywords": ["zoom", "api", "client"],
   "license": "Apache-2.0",
