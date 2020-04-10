@@ -1,14 +1,14 @@
 {
-  "name": "portaldna/ZoomPHP",
+  "name": "Ramzi-Alqrainy/zoom-php ",
   "description": "Zoom API v2 PHP Library.",
   "version": "0.0.2",
   "keywords": ["zoom", "api", "client"],
-  "license": "GPL-3.0-or-later",
-  "homepage": "https://bitbucket.org/portaldna/ZoomPHP",
+  "license": "apache 2.0",
+  "homepage": "https://github.com/Ramzi-Alqrainy/zoom-php",
   "authors": [
     {
-      "name": "Craig Aschbrenner",
-      "email": "craig.aschbrenner@portaldna.com"
+      "name": "Ramzi Alqrainy",
+      "email": "ramzi.alqrainy@gmail.com"
     }
   ],
   "type": "library",
