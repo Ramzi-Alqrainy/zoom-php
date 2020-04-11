@@ -7,7 +7,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * Zoom Meeting API.
  */
-class Meeting extends AbstractApi {
+class Meeting extends AbstractItemApi {
 
   /**
    * {@inheritdoc}
@@ -282,13 +282,6 @@ class Meeting extends AbstractApi {
           return $this->put("meetings/{$meetingId}/registrants/status", $data);
       }
 
-  /**
-   * Update meeting status.
-   */
-  public function status($meetingId, array $params = []) {
-    $params = $this->resolveOptionsBySet($params, 'status');
-    return $this->put($this->getResourcePath($meetingId) . '/status', $params);
-  }
 
   /**
    * {@inheritdoc}

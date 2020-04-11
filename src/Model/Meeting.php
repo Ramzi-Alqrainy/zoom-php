@@ -23,6 +23,7 @@ class Meeting extends AbstractModel {
     'timezone',
     'password',
     'agenda',
+    'status',
     'type',
     'repeat_interval',
     'weekly_days',
@@ -42,95 +43,72 @@ class Meeting extends AbstractModel {
    * Retrieve the user.
    */
   public function fetch() {
-    return $this->fromArray($this->client->api('user')->fetch($this->getId()));
+    return $this->fromArray($this->client->api('meeting')->fetch($this->getId()));
   }
 
   /**
-   * Create the user.
+   * Create the meeting.
    */
-  public function create($type, $email, array $data = []) {
-    return $this->fromArray($this->client->api('user')->create($type, $email, $data));
+  public function create( array $data = []) {
+    return $this->fromArray($this->client->api('meeting')->create($data));
   }
 
   /**
    * Custom Create the user.
    */
-  public function custCreate($type, $email, array $data = []) {
-    return $this->fromArray($this->client->api('user')->custCreate($type, $email, $data));
+  public function createForUser($userId, array $data = []) {
+    return $this->fromArray($this->client->api('meeting')->createForUser($userId, $data));
   }
 
   /**
-   * Update user.
+   * Update meeting.
    */
-  public function update($data) {
-    $this->client->api('user')->update($this->getId(), $data);
+  public function update(tring $meetingId, array $data = []) {
+    $this->client->api('meeting')->update($meetingId, $data);
     return $this;
+  }
+
+  /**
+   * Delete meeting.
+   */
+  public function remove(string $meetingId) {
+    return $this->client->api('meeting')->remove($meetingId);
+  }
+
+  /**
+   * status meeting.
+   */
+  public function status(string $meetingId, array $data = []) {
+    return $this->client->api('meeting')->status($meetingId,$data);
   }
 
   /**
    * Delete user.
    */
-  public function delete() {
-    return $this->client->api('user')->delete($this->getId(), 'delete');
+  public function listRegistrants(string $meetingId, array $query = []) {
+    return $this->client->api('meeting')->listRegistrants($meetingId,$query);
   }
 
   /**
-   * Disassociate user.
+   * Add Registrant
+   *
+   * @param $meetingId
+   * @param array $data
+   * @return array|mixed
    */
-  public function disassociate(array $data = []) {
-    return $this->client->api('user')->delete($this->getId(), 'disassociate');
+  public function addRegistrant(string $meetingId, $data = []) {
+    return $this->client->api('meeting')->addRegistrant($meetingId,$query);
   }
 
   /**
-   * Get / update user settings.
+   * Update Registrant Status
+   *
+   * @param $meetingId
+   * @param array $data
+   * @return array|mixed
    */
-  public function settings(array $settings = []) {
-    if (empty($settings)) {
-      $content['user_settings'] = $this->client->api('user')->settings($this->getId());
-      return $this->fromArray($content);
-    }
-    else {
-      $this->client->api('user')->settings($this->getId(), $settings);
-      return $this;
-    }
-  }
-
-  /**
-   * Update user status.
-   */
-  public function status($status) {
-    $this->client->api('user')->status($this->getId(), $status);
-    return $this;
-  }
-
-  /**
-   * Activate user.
-   */
-  public function activate() {
-    return $this->status('activate');
-  }
-
-  /**
-   * Deactivate user.
-   */
-  public function deactivate() {
-    return $this->status('deactivate');
-  }
-
-  /**
-   * Update user password.
-   */
-  public function password($password) {
-    $this->client->api('user')->password($this->getId(), $password);
-    return $this;
-  }
-
-  /**
-   * Update user email.
-   */
-  public function email($email) {
-    $this->client->api('user')->email($this->getId(), $email);
-    return $this;
+  public function updateRegistrantStatus(string $meetingId, array $data = []) {
+      return $this->client->api('meeting')->updateRegistrantStatus($meetingId, $data);
   }
 
   public function meetings($type = 'live') {
