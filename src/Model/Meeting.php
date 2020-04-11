@@ -24,34 +24,18 @@ class Meeting extends AbstractModel {
     'password',
     'agenda',
     'type',
-
-
-
-
-
-
-    'id',
-    'email',
-    'first_name',
-    'last_name',
-    'type',
-    'pmi',
-    'timezone',
-    'verified',
-    'created_at',
-    'last_login_time',
-    'last_client_version',
-    'use_pmi',
-    'personal_meeting_url',
-    'dept',
-    'host_key',
-    'group_ids',
-    'im_group_ids',
-    'account_id',
-    'vanity_name',
-    'cms_user_id',
-    'user_settings',
-    'meetings',
+    'repeat_interval',
+    'weekly_days',
+    'monthly_day',
+    'monthly_week_daily',
+    'end_times',
+    'end_date_time',
+    'host_video',
+    'in_meeting',
+    'join_before_host',
+    'mute_upon_entry',
+    'participant_video',
+    'registrants_confirmation_email',
   ];
 
   /**
