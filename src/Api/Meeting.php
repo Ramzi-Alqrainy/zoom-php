@@ -208,6 +208,81 @@ class Meeting extends AbstractApi {
   }
 
   /**
+       * Meeting
+       *
+       * @param $meetingId
+       * @return array|mixed
+       */
+      public function meeting(string $meetingId) {
+          return $this->get("meetings/{$meetingId}");
+      }
+
+      /**
+       * Remove
+       *
+       * @param $meetingId
+       * @return array|mixed
+       */
+      public function remove(string $meetingId) {
+          return $this->delete("meetings/{$meetingId}");
+      }
+
+      /**
+       * Update
+       *
+       * @param $meetingId
+       * @param array $data
+       * @return array|mixed
+       */
+      public function update(string $meetingId, array $data = []) {
+          return $this->patch("meetings/{$meetingId}", $data);
+      }
+
+      /**
+       * Status
+       *
+       * @param $meetingId
+       * @param array $data
+       * @return mixed
+       */
+      public function status(string $meetingId, array $data = []) {
+          return $this->put("meetings/{$meetingId}/status", $data);
+      }
+
+      /**
+       * List Registrants
+       *
+       * @param $meetingId
+       * @param array $query
+       * @return array|mixed
+       */
+      public function listRegistrants(string $meetingId, array $query = []) {
+          return $this->get("meetings/{$meetingId}/registrants", $query);
+      }
+
+      /**
+       * Add Registrant
+       *
+       * @param $meetingId
+       * @param array $data
+       * @return array|mixed
+       */
+      public function addRegistrant(string $meetingId, $data = []) {
+          return $this->post("meetings/{$meetingId}/registrants", $data);
+      }
+
+      /**
+       * Update Registrant Status
+       *
+       * @param $meetingId
+       * @param array $data
+       * @return array|mixed
+       */
+      public function updateRegistrantStatus(string $meetingId, array $data = []) {
+          return $this->put("meetings/{$meetingId}/registrants/status", $data);
+      }
+
+  /**
    * Update meeting status.
    */
   public function status($meetingId, array $params = []) {
