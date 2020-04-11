@@ -2,7 +2,7 @@
 
 namespace ZoomPHP\Api;
 
-use ZoomPHP\ZoomPHPClient;
+use ZoomPHP\ZoomAPIClient;
 use ZoomPHP\Exception\ApiException;
 use Http\Discovery\StreamFactoryDiscovery;
 use Http\Message\StreamFactory;
@@ -32,7 +32,7 @@ abstract class AbstractApi implements ApiInterface {
   protected $propertyDefs = [];
 
   /**
-   * @var ZoomPHP\ZoomPHPClient
+   * @var ZoomPHP\ZoomAPIClient
    */
   protected $client;
 
@@ -42,10 +42,10 @@ abstract class AbstractApi implements ApiInterface {
   private $streamFactory;
 
   /**
-   * @param ZoomPHP\ZoomPHPClient $client
+   * @param ZoomPHP\ZoomAPIClient $client
    * @param Http\Message\StreamFactory|null $streamFactory
    */
-  public function __construct(ZoomPHPClient $client, StreamFactory $streamFactory = NULL) {
+  public function __construct(ZoomAPIClient $client, StreamFactory $streamFactory = NULL) {
     $this->client = $client;
     $this->streamFactory = $streamFactory ?: StreamFactoryDiscovery::find();
   }

@@ -4,7 +4,7 @@ namespace ZoomPHP\Model;
 
 // @todo
 // use ZoomPHP\Exception\InvalidArgumentException;
-use ZoomPHP\ZoomPHPClient;
+use ZoomPHP\ZoomAPIClient;
 
 /**
  * Abstract Model.
@@ -20,7 +20,7 @@ abstract class AbstractModel implements ModelInterface {
   /**
    * Constructor.
    */
-  public function __construct(ZoomPHPClient $client, $id = NULL) {
+  public function __construct(ZoomAPIClient $client, $id = NULL) {
     $this->client = $client;
     $this->id = $id;
   }
